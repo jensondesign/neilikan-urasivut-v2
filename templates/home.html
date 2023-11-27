@@ -5,54 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Töihin Neilikalle</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style>
-    h1 {
-      font-size: 2.5rem;
-      font-family: Roboto;
-      font-weight: normal;
-      color: rgb(50, 50, 50);
-      text-align: center;
-    }
-
     #banner {
       width: 100%;
-      height: auto;
       object-fit: cover;
-      object-position: topcenter;
-    }
-
-    h2 {
-      font-family: Roboto;
-      font-size: 2rem;
-      color: rgb(100, 100, 100);
-      text-align: center;
-      font-weight: normal;
-    }
-
-    p {
-      font-family: Roboto;
-      font-size: 1.125rem;
-      color: rgb(80, 80, 80);
-      font-weight: normal;
-    }
-
-    #container {
-      max-width: 720px;
-      margin: 0 auto;
+      height: 500px;
+      aspect-ratio: 16/9;
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1>Töihin Neilikalle</h1>
-    <img id="banner" src="./static/puutarhuri.jpg"       width="500" height="300" alt="Puutarhuri kantaa lapiota ja ämpäriä multaa">
-    <h2>Puutarha Neilikka työnantajana</h2>
-    <p>Puutarha Neilikka yhdistää kauneuden, kestävyyden ja yhteisöllisyyden intohimoiseksi kokonaisuudeksi, tarjoten asiakkaille mahdollisuuden luoda kauniita puutarhoja samalla kun se vaalii ympäristöarvoja ja tukee työntekijöidensä hyvinvointia.</p>
+  <div class="container">
+    <h1 class="text-center mt-4 mb-4">Töihin Neilikalle</h1>
+    <img class="img-fluid" id="banner" src="./static/puutarhuri.jpg" width="500" height="300" alt="Puutarhuri kantaa lapiota ja ämpäriä multaa">
+    <h2 class="text-center mt-4 mb-4">Puutarha Neilikka työnantajana</h2>
+    <p class="lead text-center">Puutarha Neilikka yhdistää kauneuden, kestävyyden ja yhteisöllisyyden intohimoiseksi kokonaisuudeksi, tarjoten asiakkaille mahdollisuuden luoda kauniita puutarhoja samalla kun se vaalii ympäristöarvoja ja tukee työntekijöidensä hyvinvointia.</p>
 
-    <h2>Avoimet työpaikat</h2>
+    <h2 class="text-center mt-4 mb-4">Avoimet työpaikat</h2>
     <p></p>
-    <div style="text-align:center;">
-      <button>Ota yhteyttä</button>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg">Ota yhteyttä</button>
     </div>
   </div>
 </body>
