@@ -10,23 +10,30 @@
     #banner {
       width: 100%;
       object-fit: cover;
-      height: 500px;
+      object-position: center;
+      height: auto;
       aspect-ratio: 16/9;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="text-center mt-4 mb-4">Töihin Neilikalle</h1>
+    <h1 class="text-center mt-5 mb-4">Töihin Neilikalle</h1>
     <img class="img-fluid" id="banner" src="./static/puutarhuri.jpg" width="500" height="300" alt="Puutarhuri kantaa lapiota ja ämpäriä multaa">
-    <h2 class="text-center mt-4 mb-4">Puutarha Neilikka työnantajana</h2>
-    <p class="lead text-center">Puutarha Neilikka yhdistää kauneuden, kestävyyden ja yhteisöllisyyden intohimoiseksi kokonaisuudeksi, tarjoten asiakkaille mahdollisuuden luoda kauniita puutarhoja samalla kun se vaalii ympäristöarvoja ja tukee työntekijöidensä hyvinvointia.</p>
+    <h2 class="text-center mt-5 mb-4">Puutarha Neilikka työnantajana</h2>
+    <p class="lead text-center mb-5">Puutarha Neilikka yhdistää kauneuden, kestävyyden ja yhteisöllisyyden intohimoiseksi kokonaisuudeksi, tarjoten asiakkaille mahdollisuuden luoda kauniita puutarhoja samalla kun se vaalii ympäristöarvoja ja tukee työntekijöidensä hyvinvointia.</p>
 
-    <h2 class="text-center mt-4 mb-4">Avoimet työpaikat</h2>
-    <p></p>
+    <h2 class="text-center mb-4">Avoimet työpaikat</h2>
+    <div>
+      {% for job in jobs %}
+        {% include 'jobitem.html' %}
+      {% endfor %}
+    </div>
+    
     <div class="text-center">
       <button class="btn btn-primary btn-lg">Ota yhteyttä</button>
     </div>
+    
   </div>
 </body>
 </html>
