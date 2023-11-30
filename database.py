@@ -10,13 +10,13 @@ engine = create_engine(
     "ssl": {
       "ssl_ca": "/etc/ssl/cert.pem"
     }
-  })                    
+  })
 
-with engine.connect() as conn:
-  result = conn.execute(text("SELECT * FROM jobs"))
+def load_jobs_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM jobs"))
 
-result_dicts = []
-for row in result.all():
-    result_dicts.append(dict(zip(result.keys(), row)))
-
-print(result_dicts)
+  jobs = []
+  for row in result.all():
+      jobs.append(dict(zip(result.keys(), row)))
+  return jobs
