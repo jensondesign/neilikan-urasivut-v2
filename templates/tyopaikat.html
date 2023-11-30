@@ -2,18 +2,18 @@
   <h2 class="pb-2 border-bottom">Avoimet työpaikat</h2>
 
   <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-    {% for jobs in jobs %}
-    {% if jobs['id'] == 1 %}
+    {% for job in jobs %}
+    {% if job['id'] == 1 %}
     <div class="col">
       <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: linear-gradient(rgba(0 0 0 / 40%), rgba(0 0 0 / 40%)), url('static/puutarhuri-tyopaikka.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-3 display-6 lh-1 fw-bold">{{jobs['title']}}</h3>
+          <h3 class="pt-5 mt-5 mb-3 display-6 lh-1 fw-bold">{{job['title']}}</h3>
           <ul class="d-flex flex-column list-unstyled">
             <li class="d-flex align-items-center ">
-              <p>{{jobs['sijainti']}}</p>
+              <p>{{job['sijainti']}}</p>
             </li>
             <li class="d-flex align-items-center">
-              <a href="#" class="btn btn-light" role="button">Hae työpaikkaa</a>
+              <a href="/job/{{ job['id'] }}" class="btn btn-light" role="button">Hae työpaikkaa</a>
             </li>
           </ul>
         </div>
@@ -21,17 +21,17 @@
     </div>
     {% endif %}
     
-    {% if jobs['id'] == 2 %}
+    {% if job['id'] == 2 %}
     <div class="col">
       <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: linear-gradient(rgba(0 0 0 / 40%), rgba(0 0 0 / 40%)), url('static/vuorovastaava.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-3 display-6 lh-1 fw-bold">{{jobs['title']}}</h3>
+          <h3 class="pt-5 mt-5 mb-3 display-6 lh-1 fw-bold">{{job['title']}}</h3>
           <ul class="d-flex flex-column list-unstyled">
             <li class="d-flex align-items-center ">
-              <p>{{jobs['sijainti']}}</p>
+              <p>{{job['sijainti']}}</p>
             </li>
             <li class="d-flex align-items-center">
-              <a href="#" class="btn btn-light" role="button">Hae työpaikkaa</a>
+              <a href="/job/{{ job['id'] }}" class="btn btn-light" role="button">Hae työpaikkaa</a>
             </li>
           </ul>
         </div>
@@ -39,17 +39,17 @@
     </div>
 {% endif %}
 
-{% if jobs['id'] == 3 %}
+{% if job['id'] == 3 %}
     <div class="col">
       <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: linear-gradient(rgba(0 0 0 / 40%), rgba(0 0 0 / 40%)), url('static/myyja.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-3 display-6 lh-1 fw-bold">{{jobs['title']}}</h3>
+          <h3 class="pt-5 mt-5 mb-3 display-6 lh-1 fw-bold">{{job['title']}}</h3>
           <ul class="d-flex flex-column list-unstyled">
             <li class="d-flex align-items-center ">
-              <p>{{jobs['sijainti']}}</p>
+              <p>{{job['sijainti']}}</p>
             </li>
             <li class="d-flex align-items-center">
-              <a href="#" class="btn btn-light" role="button">Hae työpaikkaa</a>
+              <a href="/job/{{ job['id'] }}" class="btn btn-light" role="button">Hae työpaikkaa</a>
             </li>
           </ul>
         </div>
