@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Työhakemus vastaanotettu</title>
+  {% include 'bootstrap.html' %}
+</head>
+<body>
+  {% include 'nav.html'%}
+
+  <main>
+    <div class="container my-5">
+      <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+        <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"><symbol id="check2-circle" viewBox="0 0 16 16">
+          <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
+          <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
+        </symbol></use></svg>
+        <h1 class="text-body-emphasis">Työhakemus vastaanotettu</h1>
+        <p class="col-lg-6 mx-auto mb-4">
+          Kiitos {{tyohakemus['firstName']}} ja tervetuloa rekrytointiprosessiin! Ensimmäiseksi arvioimme saapuneet hakemukset ja valitsemme potentiaalisimmat hakijat ensimmäiseen haastatteluun. Pidämme sinut jatkuvasti ajan tasalla prosessin etenemisestä ja tarjoamme selkeät ohjeet mahdollisista seuraavista vaiheista. Kiitos kiinnostuksestasi meitä kohtaan! Alla näet hakemuksesi:
+        </p>
+
+        <hr class="my-5">
+        
+<div class="container mt-5"
+    <div class="col-md-12 col-lg-12 text-center">
+      <h2 class="text-body-emphasis fs-3 mb-4">Yhteenveto hakemuksestasi</h2>
+          <div class="col-lg-6 text-start mb-4 mx-auto">
+            <h3 class="fs-5">Koko nimi</h3>
+            <p>{{tyohakemus['firstName']}} {{tyohakemus['lastName']}}</p>
+          </div>
+
+      <div class="col-lg-6 text-start mb-4 mx-auto">
+        <h3 class="fs-5">Sähköpostiosoite</h3>
+        <p>{{tyohakemus['email']}}</p>
+      </div>
+
+      <div class="col-lg-6 text-start mb-4 mx-auto">
+        <h3 class="fs-5">Sijainti</h3>
+        <p>{{tyohakemus['sijainti']}}</p>
+      </div>
+
+    {% if tyohakemus['linkedin'] %}
+      <div class="col-lg-6 text-start mb-4 mx-auto">
+        <h3 class="fs-5">LinkedIn-profiili</h3>
+        <p>{{tyohakemus['linkedin']}}</p>
+      </div>
+    {% endif %}
+
+      <div class="col-lg-6 text-start mb-4 mx-auto">
+        <h3 class="fs-5">CV</h3>
+        <p>{{tyohakemus.cv}}</p>
+      </div>
+
+      <div class="col-lg-6 text-start mb-4 mx-auto">
+        <h3 class="fs-5">Hakukirje</h3>
+        <p>{{tyohakemus['hakukirje']}}</p>
+      </div>
+    </div>        
+  <a href="/" class="btn btn-primary btn-lg px-4 me-sm-3" role="button">Palaa etusivulle</a>
+    </div>
+
+      </div>
+    </div>
+
+    
+    
+  </main>
+  
+  {% include 'footer.html'%}
+</body>
+</html>

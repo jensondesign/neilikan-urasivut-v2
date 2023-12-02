@@ -96,7 +96,7 @@
       <p class="lead mb-1">Sijainti: {{job.sijainti}}</p>
       <p class="lead mb-4">Tuntipalkka: {{job.salary}}{{job.currency}}</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <a href="#" class="btn btn-primary btn-lg px-4 me-sm-3" role="button">Hae työpaikkaa</a>
+        <a href="#haku-lomake" class="btn btn-primary btn-lg px-4 me-sm-3" role="button">Hae työpaikkaa</a>
         <a href="#tiedot-tyopaikasta" class="btn btn-outline-secondary btn-lg px-4" role="button">Lue lisää työpaikasta</a>
       </div>
     </div>
@@ -136,7 +136,9 @@
           <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto object-fit-cover" src="/static/tomaatteja.jpg">
         </div>
       </div>
+      <hr class="featurette-divider">
 
+    {% include 'tyonhaku-lomake.html' %}
   </div>
     </main>
   {% include 'footer.html' %}

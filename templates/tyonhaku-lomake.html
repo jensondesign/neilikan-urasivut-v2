@@ -1,0 +1,44 @@
+<div class="col-md-12 col-lg-12" id="haku-lomake">
+  <h2 class="mb-3 featurette-heading fw-normal lh-1">Hae työpaikkaa</h2>
+  <form class="needs-validation" action="/job/{{job['id']}}/hae" method="post" enctype="multipart/form-data">
+    <div class="row g-3">
+      <div class="col-sm-6">
+        <label for="firstName" class="form-label">Etunimi</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="">
+      </div>
+
+      <div class="col-sm-6">
+        <label for="lastName" class="form-label">Sukunimi</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
+      </div>
+
+      <div class="col-12">
+        <label for="email" class="form-label">Sähköposti</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="sina@example.com" required="">
+      </div>
+
+      <div class="col-12">
+        <label for="sijainti" class="form-label">Sijainti</label>
+        <input type="text" class="form-control" id="sijainti" placeholder="Helsinki" name="sijainti" required="">
+      </div>
+
+      <div class="col-12">
+        <label for="linkedin" class="form-label">LinkedIn <span class="text-body-secondary">(Valinnainen)</span></label>
+        <input type="text" name="linkedin" class="form-control" id="linkedin" placeholder="https://www.linkedin.com">
+      </div>
+
+      <div class="col-12">
+        <label for="cv-upload" class="form-label">Lataa CV <span class="text-body-secondary">(Vain .pdf-tiedostot)</span></label>
+        <input type="file" name="cv" class="form-control" id="cv-upload" accept=".pdf" required="">
+      </div>
+      
+      <div class="col-12">
+        <label for="hakukirje" class="form-label">Hakukirje <span class="text-body-secondary">(Max. 5000 merkkiä)</span></label>
+        <textarea maxlength="5000" name="hakukirje" class="form-control" id="hakukirje" placeholder="Hakukirjeesi tähän..." required=""></textarea>
+      </div>
+
+    <hr class="my-4">
+
+    <input class="w-100 btn btn-primary btn-lg" type="submit" value="Lähetä työhakemus">
+  </form>
+</div>

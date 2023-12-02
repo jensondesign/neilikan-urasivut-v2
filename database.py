@@ -35,3 +35,24 @@ def load_job_from_db(id):
           column_names = list(result.keys())
           row_dict = {column_names[i]: row[i] for i in range(len(row))}
           return row_dict
+
+def add_application_to_db(job_id, data, cv_file):
+  with engine.connect() as conn:
+      query = text("INSERT INTO tyohakemukset (job_id, firstName, lastName, email, sijainti, linkedin, cv, hakukirje) VALUES (:job_id, :firstName, :lastName, :email, :sijainti, :linkedin, :cv, :hakukirje)")
+
+      cv_data = cv_file.read() if cv_file else None
+
+      params = {
+          'job_id': job_id,
+          'firstName': data['firstName'],
+          'lastName': data['lastName'],
+          'email': data['email'],
+          'sijainti': data['sijainti'],
+          'linkedin': data['linkedin'],
+          'cv': cv_file.filename if cv_file else None,
+          'hakukirje': data['hakukirje']
+      }
+
+      conn.execute(query, params)
+      print(f"Tiedoston nimi tallennettu: {cv_file.filename}")
+  
