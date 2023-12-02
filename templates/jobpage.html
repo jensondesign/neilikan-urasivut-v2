@@ -97,7 +97,7 @@
       <p class="lead mb-4">Tuntipalkka: {{job.salary}}{{job.currency}}</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
         <a href="#" class="btn btn-primary btn-lg px-4 me-sm-3" role="button">Hae työpaikkaa</a>
-        <a href="#" class="btn btn-outline-secondary btn-lg px-4" role="button">Lue lisää työpaikasta</a>
+        <a href="#tiedot-tyopaikasta" class="btn btn-outline-secondary btn-lg px-4" role="button">Lue lisää työpaikasta</a>
       </div>
     </div>
     <div class="overflow-hidden" style="max-height: 30vh;">
@@ -109,8 +109,8 @@
 
   <div class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row align-items-center g-5 py-5">
-      <div class="col-lg-6 mt-3">
-        <h2 class="featurette-heading fw-normal lh-1">Työnkuva:          </h2>
+      <div class="col-lg-6 mt-3" id="tiedot-tyopaikasta">
+        <h2 class="featurette-heading fw-normal lh-1">Työnkuva:</h2>
         <p class="lead">{{job.responsibilities}}</p>
       </div>
       <div class="col-sm-12 col-lg-6 mt-3 mb-3">
@@ -124,7 +124,13 @@
         <div class="row flex-lg-row-reverse align-items-center g-5">
         <div class="col-lg-6 mt-3">
           <h2 class="featurette-heading fw-normal lh-1">Sinulta odotetaan:</h2>
-          <p class="lead">{{job.requirements}}</p>
+          <ul>
+            {% for line in job.requirements.split("\n") %}
+              <li>
+                <p class="lead">{{line}}</p>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
         <div class="col-sm-12 col-lg-6 mt-3 mb-3">
           <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto object-fit-cover" src="/static/tomaatteja.jpg">
