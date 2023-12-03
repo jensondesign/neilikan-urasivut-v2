@@ -1,0 +1,45 @@
+<style>
+  .modal-sheet .modal-dialog {
+    width: 380px;
+    transition: bottom .75s ease-in-out;
+  }
+  .modal-sheet .modal-footer {
+    padding-bottom: 2rem;
+  }
+</style>
+
+<div class="modal fade" tabindex="-1" aria-labelledby="viestiOnnistui" id="modalSheet" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header border-bottom-0">
+        <h1 class="modal-title fs-5" id="viestiOnnistui">Viesti lähetetty</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body py-0">
+        <p>Kiitos viestistäsi! Viestisi lähetetty onnistuneesti. Palaamme sulle mahdollisimman pian.</p>
+      </div>
+      <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+        <button type="button" class="btn btn-lg btn-primary" data-bs-dismiss="modal" id="closeModalBtn">Palaa sivulle</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var modal = new bootstrap.Modal(document.getElementById('modalSheet'));
+
+    // Listen for the modal hide event
+    modal._element.addEventListener('hide.bs.modal', function () {
+      // Reset the form fields
+      document.getElementById('yhteydenotto-lomake').reset();
+    });
+
+    // Alternatively, you can use a button click event to reset the form
+    document.getElementById('closeModalBtn').addEventListener('click', function () {
+      // Reset the form fields
+      document.getElementById('yhteydenotto-lomake').reset();
+    });
+  });
+</script>
+

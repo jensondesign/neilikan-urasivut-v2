@@ -56,3 +56,16 @@ def add_application_to_db(job_id, data, cv_file):
       conn.execute(query, params)
       print(f"Tiedoston nimi tallennettu: {cv_file.filename}")
   
+def add_contact_to_db(data):
+  with engine.connect() as conn:
+    query = text("INSERT INTO yhteydenotot (etunimi, sukunimi, sposti, aihe, viesti) VALUES (:etunimi, :sukunimi, :sposti, :aihe, :viesti)")
+
+    params = {
+      'etunimi': data['etunimi'],
+      'sukunimi': data['sukunimi'],
+      'sposti': data['sposti'],
+      'aihe': data['aihe'],
+      'viesti': data['viesti'],
+    }
+
+    conn.execute(query, params)

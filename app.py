@@ -1,8 +1,10 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, redirect, url_for, abort, Response
 
-from database import load_jobs_from_db, load_job_from_db, add_application_to_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_contact_to_db
 
 from sqlalchemy import text
+
+from werkzeug.exceptions import BadRequest
 
 app = Flask(__name__)
 
@@ -46,6 +48,32 @@ def hae_tyopaikka(id):
 
   return render_template('tyohakemus-lahetetty.html', tyohakemus=data)
 
+@app.route("/contact", methods=['POST'])
+def contact() -> Response:
+    if request.method == 'POST':
+        data = request.form
+
+        try:
+            # Käsittele lomaketiedot tässä
+
+            # Tallenna lomaketiedot tietokantaan
+            add_contact_to_db(data)
+
+            # Palauta tyhjä vastaus onnistuneen tallennuksen jälkeen
+            return Response(status=204)  # HTTP 204 No Content
+        except Exception as e:
+            # Jos jotain menee pieleen, palauta virheilmoitus
+            return handle_error(e)
+
+def handle_error(error: Exception) -> Response:
+    response = jsonify(success=False, message=f"Virhe lomaketietojen käsittelyssä: {str(error)}")
+    return response, BadRequest.code  # Korjattu tähän
+
+# Lisää virheen käsittelijä
+@app.errorhandler(Exception)
+def handle_all_exceptions(error):
+    response = jsonify(success=False, message=f"Yleinen virhe: {str(error)}")
+    return response, BadRequest.code
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
