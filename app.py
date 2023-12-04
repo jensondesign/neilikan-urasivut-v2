@@ -6,6 +6,8 @@ from sqlalchemy import text
 
 from werkzeug.exceptions import BadRequest
 
+
+
 app = Flask(__name__)
 
 @app.route("/")
