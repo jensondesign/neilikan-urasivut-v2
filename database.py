@@ -12,8 +12,6 @@ engine = create_engine(
     }
   })
 
-
-
 def load_jobs_from_db():
   with engine.connect() as conn:
     result = conn.execute(text("SELECT * FROM jobs"))
@@ -22,8 +20,6 @@ def load_jobs_from_db():
   for row in result.all():
       jobs.append(dict(zip(result.keys(), row)))
   return jobs
-
-
 
 def load_job_from_db(id):
   with engine.connect() as conn:
@@ -39,8 +35,6 @@ def load_job_from_db(id):
           column_names = list(result.keys())
           row_dict = {column_names[i]: row[i] for i in range(len(row))}
           return row_dict
-
-
 
 def add_application_to_db(job_id, data, cv_file):
   with engine.connect() as conn:
@@ -61,9 +55,7 @@ def add_application_to_db(job_id, data, cv_file):
 
       conn.execute(query, params)
       print(f"Tiedoston nimi tallennettu: {cv_file.filename}")
-
-
-
+  
 def add_contact_to_db(data):
   with engine.connect() as conn:
     query = text("INSERT INTO yhteydenotot (etunimi, sukunimi, sposti, aihe, viesti) VALUES (:etunimi, :sukunimi, :sposti, :aihe, :viesti)")
