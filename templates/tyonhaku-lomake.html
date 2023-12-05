@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-12" id="haku-lomake">
+<div class="col-sm-12 col-md-12 col-lg-8 col-xxl-7 mx-auto" id="haku-lomake">
   <h2 class="mb-3 featurette-heading fw-normal lh-1">Hae työpaikkaa</h2>
   <form class="needs-validation" action="/job/{{job['id']}}/hae" method="post" enctype="multipart/form-data">
     <div class="row g-3">
@@ -36,9 +36,9 @@
         <label for="hakukirje" class="form-label">Hakukirje <span class="text-body-secondary">(Max. 5000 merkkiä)</span></label>
         <textarea maxlength="5000" name="hakukirje" class="form-control" id="hakukirje" placeholder="Hakukirjeesi tähän..." required=""></textarea>
       </div>
-
-    <hr class="my-4">
-
-    <input class="w-100 btn btn-primary btn-lg" type="submit" value="Lähetä työhakemus">
+      
+    <div class="text-end">
+    <input class="w-50 btn btn-primary btn-lg" type="submit" value="Lähetä työhakemus">
+    </div>
   </form>
 </div>
